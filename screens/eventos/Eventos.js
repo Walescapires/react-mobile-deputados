@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import apiDeputados from '../../service/apiDeputados'
 import { ScrollView } from 'react-native'
-import { Card, Text } from 'react-native-paper'
+import { Button, Card, Text } from 'react-native-paper'
 
 const Eventos = ({ navigation }) => {
     const [eventos, setEventos] = useState([])
@@ -17,13 +17,11 @@ const Eventos = ({ navigation }) => {
             <ScrollView>
 
                 {eventos.map((item) => (
-                    <Card key={item.id}>
+                    <Card key={item.id} style={{ marginBottom: 20 }}>
                         <Card.Content>
-                            <Text>{item.descricaoTipo} - {item.situacao}</Text>
-                            <Text>{item.descricao}</Text>
-
+                            <Text variant="titleLarge">{item.descricaoTipo} - {item.situacao}</Text>
+                            <Text variant="bodyMedium">{item.descricao}</Text>
                         </Card.Content>
-
                     </Card>
                 ))}
             </ScrollView>

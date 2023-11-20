@@ -55,6 +55,22 @@ app.get('/eventos/', function (req, res) {
     })
 })
 
+app.get('/eventos/:id', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    axios.get('https://dadosabertos.camara.leg.br/api/v2/eventos/' + req.params.id).then(resultado => {
+
+        res.send(resultado.data);
+    })
+})
+
+app.get('/eventos/:id/deputados', function (req, res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    axios.get('https://dadosabertos.camara.leg.br/api/v2/eventos/' + req.params.id + '/deputados').then(resultado => {
+
+        res.send(resultado.data);
+    })
+})
+
 app.listen(3000, () => {
     console.log('alive');
 })
